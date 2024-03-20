@@ -1,0 +1,90 @@
+<header class="text-center text-2xl md:text-4xl lg:text-6xl text-amber-500 font-extrabold p-3">Slayer reward point
+  calculator</header>
+<div class="flex justify-center mt-8">
+  <div class="w-full md:w-1/2 lg:w-1/3">
+    <form class="text-center">
+      <div class="mb-4">
+        <label class="block text-white text-sm font-bold mb-2" for="currentPoints">
+          Current Slayer Points
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          id="currentPoints" type="number" placeholder="Enter current points" [(ngModel)]="points"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="mb-4">
+        <label class="block text-white text-sm font-bold mb-2" for="targetPoints">
+          Target Slayer Points
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          id="targetPoints" type="number" placeholder="Enter target points" [(ngModel)]="target"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="mb-4">
+        <label class="block text-white text-sm font-bold mb-2" for="currentStreak">
+          Current Task Streak
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          id="currentStreak" type="number" placeholder="Enter current streak" [(ngModel)]="tasks"
+          [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="mb-4">
+        <label class="block text-white text-sm font-bold mb-2" for="slayerMaster">
+          Slayer Master
+        </label>
+        <select
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          id="slayerMaster" [(ngModel)]="master" [ngModelOptions]="{standalone: true}">
+          <option value="Turael/Spria">Turael/Spria</option>
+          <option value="Mazchna">Mazchna</option>
+          <option value="Vannaka">Vannaka</option>
+          <option value="Chaeldar">Chaeldar</option>
+          <option value="Nieve/Steve">Nieve/Steve</option>
+          <option value="Duradel">Duradel</option>
+          <option value="Konar quo Maten">Konar quo Maten</option>
+          <option value="Krystilia">Krystilia</option>
+        </select>
+      </div>
+      <div class="mb-4 flex justify-center items-center">
+        <label class="block text-white text-sm font-bold mr-2" for="eliteWesternProvinces">
+          Elite Western Provinces Diary
+        </label>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="eliteWesternProvinces" [ngModelOptions]="{standalone: true}">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="mb-4 flex justify-center items-center">
+        <label class="block text-white text-sm font-bold mr-2" for="eliteKourend">
+          Elite Kourend & Kebos Diary
+        </label>
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="eliteKourend" [ngModelOptions]="{standalone: true}">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="flex items-center justify-center mb-4">
+        <button
+          class="bg-amber-500 hover:brightness-75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button" (click)="calculate()">
+          Calculate
+        </button>
+      </div>
+      <div class="mt-4 text-center" *ngIf="tasksNeeded !== -2">
+        <ng-container *ngIf="tasksNeeded === 0">
+          <p class="text-white text-lg font-semibold">You've already reached your goal. Congratulations!</p>
+        </ng-container>
+        <ng-container *ngIf="tasksNeeded !== 0">
+          <ng-container *ngIf="tasksNeeded === -1; else tasksNeededMessage">
+            <p class="text-white text-lg font-semibold">These masters <b>do not award slayer points</b> and their assignments do not contribute towards your completion streak.</p>
+          </ng-container>
+          <ng-template #tasksNeededMessage>
+            <p class="text-white text-lg font-semibold">Tasks Needed: {{ tasksNeeded }} from {{ this.master }} to reach the goal</p>
+          </ng-template>
+        </ng-container>           
+      </div>
+    </form>
+  </div>
+</div>
