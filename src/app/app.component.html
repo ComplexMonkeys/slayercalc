@@ -74,14 +74,14 @@
       </div>
       <div class="mt-4 text-center" *ngIf="tasksNeeded !== -2">
         <ng-container *ngIf="tasksNeeded === 0">
-          <p class="text-white text-lg font-semibold">You've already reached your goal. Congratulations!</p>
+          <p class="text-white text-lg ">You've already reached your goal. Congratulations!</p>
         </ng-container>
         <ng-container *ngIf="tasksNeeded !== 0">
           <ng-container *ngIf="tasksNeeded === -1; else tasksNeededMessage">
-            <p class="text-white text-lg font-semibold">These masters <b>do not award slayer points</b> and their assignments do not contribute towards your completion streak.</p>
+            <p class="text-white text-lg ">These masters <b>do not award slayer points</b> but their assignments <b>do contribute towards your completion streak</b>.</p>
           </ng-container>
           <ng-template #tasksNeededMessage>
-            <p class="text-white text-lg font-semibold">Tasks Needed: {{ tasksNeeded }} from {{ this.master }} to reach the goal</p>
+            <p class="text-white text-lg ">Tasks Needed: {{ tasksNeeded }} from {{ this.master }} to reach the goal</p>
           </ng-template>
         </ng-container>           
       </div>
