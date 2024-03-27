@@ -1,14 +1,14 @@
-<header class="text-center text-2xl md:text-4xl lg:text-6xl text-amber-500 font-extrabold p-3">Slayer reward point
+<header class="text-center text-2xl md:text-4xl text-amber-500 font-extrabold p-3">Slayer reward point
   calculator</header>
 <div class="flex justify-center mt-8">
-  <div class="w-full md:w-1/2 lg:w-1/3">
+  <div class="w-2/3 md:w-2/3 lg:w-1/3">
     <form class="text-center">
       <div class="mb-4">
         <label class="block text-white text-sm font-bold mb-2" for="currentPoints">
           Current Slayer Points
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
           id="currentPoints" type="number" placeholder="Enter current points" [(ngModel)]="points"
           [ngModelOptions]="{standalone: true}">
       </div>
@@ -17,7 +17,7 @@
           Target Slayer Points
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
           id="targetPoints" type="number" placeholder="Enter target points" [(ngModel)]="target"
           [ngModelOptions]="{standalone: true}">
       </div>
@@ -26,7 +26,7 @@
           Current Task Streak
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
           id="currentStreak" type="number" placeholder="Enter current streak" [(ngModel)]="tasks"
           [ngModelOptions]="{standalone: true}">
       </div>
@@ -35,7 +35,7 @@
           Slayer Master
         </label>
         <select
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border rounded w-full md:w-2/3 py-2 px-3 text-black text-center leading-tight focus:outline-none focus:shadow-outline"
           id="slayerMaster" [(ngModel)]="master" [ngModelOptions]="{standalone: true}">
           <option value="Turael/Spria">Turael/Spria</option>
           <option value="Mazchna">Mazchna</option>
